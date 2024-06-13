@@ -6,24 +6,30 @@
     <title>Weather App</title>
     <style>
         body {
+            
+            background-image:url('https://i.ibb.co/bmHKn42/sky.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
             font-family: Arial, sans-serif;
             margin: 20px;
         }
+       
         .weather {
             padding: 2px;
             text-align: center;
             margin-bottom: 20px;
-            background: rgba(11, 100, 122, 0.9);
+            background: rgba(209, 230, 235, 0.3);
             border-radius: 16px;
             box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(7.2px);
             -webkit-backdrop-filter: blur(7.2px);
             border: 1px solid rgba(2, 180, 255, 0.25);
             transition: transform 0.3s ease;
+            opacity: 1;
         }
         .weather:hover {
             transform: translateY(-2px);
-            background-color: #04f2e2;
+            background-color: #6bece3;
         }
 
         .weather h2 {
@@ -33,17 +39,25 @@
 </head>
 <body>
     
+    <!-- <input type="text" id="cityName" name="cityName" placeholder="City"> -->
+
+
     <h1>Weather Information</h1>
     {% for weather in weather_data %}
-    <p>Current Date and Time: {{ current_date_time }}</p>
-   
+        <!-- {{weather}} -->
         <div class="weather">
             <h2>{{ weather.city }}</h2>
+            <p>Date: {{ date_part }}</p>
             <p>Condition: {{ weather.condition }}</p>
             <p>Description: {{ weather.description }}</p>
             <p>Temperature: {{ weather.temp }}°C</p>
+            <h1>Time: {{ weather.time }}</h1>
         </div>
     {% endfor %}
-    
+
+    <div class="footer">
+        &copy; 2024 JsonWeather. All rights reserved. | <a href="/privacy-policy">Privacy Policy</a>
+    </div>
+
 </body>
 </html>
